@@ -2,26 +2,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.card');
     
     // 找出最后一个卡片（即飞入动画最晚结束的卡片）
-    // 在我们的 HTML 中，卡片 4 (i=4, delay=0.8s) 是最后一个
     const lastCard = document.querySelector('.card:last-child');
 
-    // 监听最后一个卡片的 CSS 动画结束事件
+    // 监听动画结束，启用交互
     lastCard.addEventListener('animationend', () => {
-        // 动画结束后，给所有卡片添加 'animation-done' 类
         cards.forEach(card => {
             card.classList.add('animation-done');
         });
-        
         console.log('所有卡片动画已完成，交互已启用。');
+    }, { once: true });
 
-    }, { once: true }); // { once: true } 确保事件只触发一次
-
-    // 2. 点击跳转到艺术家页面 (与之前保持一致)
+    // 2. 修改后的点击跳转逻辑
     cards.forEach(card => {
         card.addEventListener('click', () => {
             const artistId = card.getAttribute('data-artist-id');
-            // 确保您已创建 artist1.html, artist2.html, ... 等文件
-            window.location.href = `${artistId}.html`; 
+            let targetUrl = ''; // 存储最终的跳转目标
+
+            // --- 【重点修改部分】 ---
+            if (artistId === 'artist4') {
+                // 如果是 artist4，跳转到特定的外部链接
+                // 请将 'https://www.your-external-link.com' 替换为你的实际链接
+                targetUrl = 'https://sites.google.com/umail.ucc.ie/dh6033marycasatt/home?authuser=2'; 
+                
+                // 建议：对于外部链接，通常会新开一个标签页
+                window.open(targetUrl, '_blank');
+                return; // 结束当前点击事件，避免执行下面的默认跳转
+                
+            } else {
+                // 其他卡片 (artist1, artist2, artist3, ...) 保持原样，跳转到本地文件
+                targetUrl = `${artistId}.html`;
+                window.location.href = targetUrl;
+            }
+            // --- 【重点修改部分结束】 ---
+            
+            // 如果你决定不使用 window.open，可以统一使用 window.location.href
+            // window.location.href = targetUrl; 
         });
     });
 });
