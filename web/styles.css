@@ -1,0 +1,178 @@
+:root {
+    --card-width: 300px;
+    --card-height: 450px;
+    --stack-offset: 300px; /* 卡片间距已拉大 */
+    --stack-rotation: 5deg; /* 单个卡片的错位角度 */
+    --base-rotation-y: 25deg; /* 整体旋转 45 度朝向观众 */
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; 
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- 头部样式 --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+
+nav a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: #555;
+}
+
+/* --- 主内容区/卡片堆叠样式 --- */
+.content-area {
+    flex-grow: 1; 
+    position: relative; /* 确保它是 card-stack 的定位参考 */
+    perspective: 1500px; 
+    overflow: hidden; /* 隐藏飞入时卡片在底部的部分 */
+}
+
+/* 堆叠容器：用于居中和 3D 舞台设置 */
+.card-stack {
+    width: var(--card-width);
+    height: var(--card-height);
+    
+    /* 居中修复：经典绝对定位 + transform */
+    position: absolute; 
+    top: 50%;           
+    left: 75%;          
+    
+    /* 修正自身偏移实现居中，并增加 30px 向右的偏移量来校准 45度角带来的视觉偏差 */
+    transform: translate(-50%, -50%) translateX(30px); 
+    
+    transform-style: preserve-3d;
+}
+
+.card {
+    position: absolute;
+    width: var(--card-width);
+    height: var(--card-height);
+    background-color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    
+    /* 关键：悬停动画过渡 */
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s;
+    
+    /* 初始 3D 变换：在屏幕外下方 (translateY(100vh)) */
+    transform: 
+        rotateY(var(--base-rotation-y)) 
+        rotateY(calc(var(--i) * var(--stack-rotation))) 
+        translateZ(calc(var(--i) * var(--stack-offset) * -1))
+        translateY(100vh); /* 初始位置：在屏幕外下方 */
+        
+    opacity: 0;
+    
+    /* 应用开场动画，forwards 确保动画结束后保持 100% 状态 */
+    animation: fly-in 1.2s ease-out forwards;
+    animation-delay: var(--delay); 
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 4px;
+}
+
+/* 鼠标悬停效果：向上浮动 */
+.card:hover {
+    /* 关键：transform 值与 100% 状态不同，触发过渡动画 */
+    transform: 
+        rotateY(var(--base-rotation-y)) 
+        rotateY(calc(var(--i) * var(--stack-rotation))) 
+        translateZ(calc(var(--i) * var(--stack-offset) * -1))
+        translateY(-20px); /* 向上浮动 20px */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* 开场飞入动画 */
+@keyframes fly-in {
+    0% {
+        opacity: 0;
+        /* 0% 状态保持 .card 的初始 transform (translateY(100vh)) */
+    }
+    100% {
+        opacity: 1;
+        /* 100% 状态：卡片回到中心位置 (translateY(0)) */
+        transform: 
+            rotateY(var(--base-rotation-y)) 
+            rotateY(calc(var(--i) * var(--stack-rotation))) 
+            translateZ(calc(var(--i) * var(--stack-offset) * -1))
+            translateY(0); 
+    }
+}
+
+
+/* --- 页脚样式 --- */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 30px 50px;
+    font-size: 14px;
+}
+
+.footer-left {
+    display: flex;
+    align-items: flex-end;
+}
+
+.signature {
+    display: flex;
+    align-items: flex-start;
+    margin-right: 50px;
+}
+
+.signature .no {
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.info h2 {
+    font-size: 18px;
+    margin: 0 0 5px 0;
+    font-weight: bold;
+}
+
+.info p {
+    margin: 2px 0;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.contact-link {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.footer-right {
+    color: #666;
+}
