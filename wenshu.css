@@ -214,10 +214,11 @@ body, html {
     background-color: #333; /* 按钮背景颜色 */
     color: #fff;            /* 文本颜色 */
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 25px;
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
+    font-family: centaur;
 }
 .tourbutton:hover {
     background-color: #555; /* 悬停时颜色变深 */
@@ -456,10 +457,12 @@ body, html {
     background-color: #333; /* 按钮背景颜色 */
     color: #fff;            /* 文本颜色 */
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 25px;
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
+    font-family: centaur;
+    opacity: 75%;
 }
 
 /* 鼠标悬停效果 */
