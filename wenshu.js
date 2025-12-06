@@ -29,6 +29,8 @@ const HOTSPOT_DATA = [
     { id: 'hotspot_xuancao', originalX: 10159, originalY: 1213, title: '萱草', fullImage: '明趙文俶畫春蠶食葉.png' },
     { id: 'hotspot_shizhu', originalX: 15032, originalY: 927, title: '石竹', fullImage: 'shizhu.png' },
     { id: 'hotspot_dabinju', originalX: 6829, originalY: 1027, title: '大濱菊', fullImage: 'dabinju.png' },
+    { id: 'hotspot_yinzhang', originalX: 4357, originalY: 708, title: '大濱菊', fullImage: 'dabinju.png' },
+    { id: 'hotspot_qianlongzhang', originalX: 29063, originalY: 380, title: '大濱菊', fullImage: 'dabinju.png' },
 ];
 
 // ========================
