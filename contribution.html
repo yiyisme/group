@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echoes of Women Artists Contribution</title>
+    <!-- 加载 Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 设置自定义配置，使用 Inter 字体 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary-dark': '#374151',
+                        'light-gray': '#F9FAFB',
+                        'mid-gray': '#E5E7EB',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 确保 Inter 字体应用于所有元素 */
+        body {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* 隐藏滚动条但允许滚动，保持简洁设计 */
+        .hide-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;  /* Chrome, Safari and Opera */
+        }
+        .text-gray-600 text-sm leading-relaxed space-y-3{
+            font-size: 17px;
+        }
+    </style>
+</head>
+<body class="bg-light-gray min-h-screen text-primary-dark">
+
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
+
+        <!-- 整体布局：在桌面端使用两列布局，左侧为固定信息，右侧为滚动内容 -->
+        <div class="lg:grid lg:grid-cols-4 lg:gap-12">
+
+            <!-- 左侧固定信息区 (在移动端会堆叠在顶部) -->
+            <header class="lg:col-span-1 mb-8 lg:mb-0 lg:sticky lg:top-8 self-start">
+                <div class="p-6 bg-white rounded-xl shadow-lg border border-mid-gray/50">
+                    <!-- 1. 作品名：Echoes of women artists (大标题) -->
+                    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 mb-4 leading-snug">
+                        Echoes of Women Artists
+                    </h1>
+
+
+                    <!-- 2. 成员介绍 -->
+                    <div class="space-y-4 mb-8">
+                        <h2 class="text-lg font-semibold border-b pb-1 border-mid-gray text-gray-700">Team Members</h2>
+                        <ul class="text-sm space-y-2">
+                            <li class="flex justify-between">
+                                <span class="font-medium text-gray-600">Anqi Wei</span>
+                                <span class="text-gray-400"></span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="font-medium text-gray-600">Helon Dobbins</span>
+                                <span class="text-gray-400"></span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="font-medium text-gray-600">Yi Zhong</span>
+                                <span class="text-gray-400"></span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="font-medium text-gray-600">Yunxi Lei</span>
+                                <span class="text-gray-400"></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 3. 时间 -->
+                    <div>
+                        <h2 class="text-lg font-semibold border-b pb-1 border-mid-gray text-gray-700"></h2>
+                        <p class="text-sm mt-2 text-gray-500">08/12/2025</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- 右侧滚动内容区：Reflection 区域 -->
+            <main class="lg:col-span-3 space-y-12">
+                <h2 class="text-2xl font-bold text-gray-900 border-b-2 pb-2 mb-8 border-gray-200" style="font-size: 30px">
+                    Reflections & Contributions
+                </h2>
+
+                <!-- 成员 A 的 Reflection -->
+                <section class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 border border-mid-gray">
+                    <h3 class="text-xl font-bold text-gray-700 mb-3">Anqi Wei</h3>
+                    <div class="text-gray-600 text-sm leading-relaxed space-y-3" style="font-size: 17px;">
+                        <p>
+                            We chose female artists as the theme this time, because we think in the modern society, the voices of female artists are still easily ignored, especially in the narrative of art history, women are often placed in a secondary position. However, their works often contain strong emotional power, and also can reflect the cultural background and social situation of their times. therefore, I decided to study Japanese female artist Yayoi Kusama. She is known as the "Queen of Waves", and she works has a unique style, and also deeply expresses her inner spiritual world. I have collected introductions about her life, artistic style analysis and some representative works in many websites and databases, and sorted them out and put them into my website content.
+                        </p>
+                        <p>
+                           In terms of design, I choose to present it on the web page because it is more intuitive and easier for viewers to understand the artist's story. Web pages can present text and images at the same time, making the content reading rhythm more natural. I use VS Code to write the HTML and CSS of the whole page, and I am responsible for conceiving the typesetting structure inside the Kusama page. In addition, the layout of the homepage of our group and the visual design of the overall website are my ideas and preliminary ideas in my mind, so that the whole website can present a more unified style.
+
+                            In the implementation stage, my page successfully achieved the original goal: clear content, clean layout, and easy-to-read structure. Finally, Zhong Yi integrated the pages of all members through GitHub to form a complete website.
+
+                            In the reflection part, I think the overall effect is good, but if there is a chance to improve in the future, I hope to add more interactive designs, such as dynamic effects or clickable work descriptions, so that the audience can have a richer experience when browsing, and make the whole digital artwork more vivid and interesting.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- 成员 B 的 Reflection -->
+                <section class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 border border-mid-gray">
+                    <h3 class="text-xl font-bold text-gray-700 mb-3">Helon Dobbins</h3>
+                    <div class="text-gray-600 text-sm leading-relaxed space-y-3">
+                        <p></p>
+                    </div>
+                </section>
+
+                <!-- 成员 C 的 Reflection -->
+                <section class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 border border-mid-gray">
+                    <h3 class="text-xl font-bold text-gray-700 mb-3">Yi Zhong</h3>
+                    <div class="text-gray-600 text-sm leading-relaxed space-y-3" style="font-size: 17px;">
+                        <p>
+                            Our group focused on female artists, as their work and presence have often been overlooked in historical narratives. I chose Wenshu as the theme for my webpage because she represents the unique creative practice of literati women in the Ming dynasty. Restricted by feudal norms, women could not work publicly or travel, so their creative space was largely confined to the inner chambers. Their work was often undervalued at the time. Yet, I believe their delicate depictions of flowers, plants, insects, and birds reveal a distinctive artistic and spiritual world. Wenshu's paintings are not just visual expressions but a medium for women to carve out personal space, express themselves, and convey life reflections within limited confines. I also made the home page and reflection page.
+                        </p>
+                        <p>
+                            For the Wenshu page, I used html, css and javascript, designed an interactive exhibition where viewers can click to preview her works and use the mouse to zoom and move, simulating a personal exploration of the paintings. I also added traditional Chinese music to enhance immersion. Beyond this page, I created the artist homepage to gather all group members' pages, forming a complete navigation system. This highlights individual artists while helping viewers see connections across the wider network of female artists.
+
+                            The website works well and achieved my goal of making the audience engage with Wenshu's artistic world. However, there is room for improvement, especially in the artist introduction section. Next time, I plan to use a first-person narrative and create an overall artist map to better illustrate her environment and artistic context.</p>
+                    </div>
+                </section>
+
+                <!-- 成员 D 的 Reflection -->
+                <section class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 border border-mid-gray">
+                    <h3 class="text-xl font-bold text-gray-700 mb-3">Yunxi Lei</h3>
+                    <div class="text-gray-600 text-sm leading-relaxed space-y-3">
+                        <p></p>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+        
+         <!-- 返回主页按钮：位于主内容下方，居中显示，样式与整体设计保持一致 -->
+        <div class="mt-16 pt-8 border-t border-mid-gray flex justify-center">
+            <a href="index.html" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl shadow-md text-white bg-primary-dark hover:bg-gray-700 transition duration-150 ease-in-out hover:shadow-lg">
+                &larr; Back to Home
+            </a>
+        </div>
+        
+        
+
+    </div>
+
+
+</body>
+</html>
