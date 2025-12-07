@@ -1,5 +1,11 @@
 // ========================
-// 基础 DOM 获取
+// 初始化
+// ========================
+window.addEventListener('load', initializeOnLoad);
+window.addEventListener('resize', initializeBackground);
+
+// ========================
+// 基础 DOM 获取 (全局变量)
 // ========================
 const mainContentScroll = document.getElementById("mainContentScroll");
 const scrollButtons = document.querySelectorAll(".scroll-down-arrow");
@@ -34,15 +40,16 @@ const HOTSPOT_DATA = [
 ];
 
 // ========================
-// 背景滑动控制
+// 背景滑动控制 (全局变量)
 // ========================
 let pos = 0;       // translateX 值
-const step = 200;   // 点击按钮每次移动距离
+const step = 200;  // 点击按钮每次移动距离
 let maxScroll = 0;
 let velocity = 0;
 let isInertiaRunning = false;
 const inertiaDamping = 0.92;
 const minSpeed = 0.01;
+
 
 function getScaleFactor() {
     return canvas.clientHeight / ORIGINAL_IMAGE_HEIGHT;
@@ -200,10 +207,15 @@ function exitTourMode() {
 
 
 // ========================
-// modal 图片缩放 + 拖拽
+// modal 图片缩放 + 拖拽 (全局变量)
 // ========================
 let scale = 1, minScale = 1, maxScale = 5;
 let posX = 0, posY = 0, startX = 0, startY = 0, isDragging = false;
+
+// 定义 updateTransform 函数，使其全局可用
+function updateTransform() {
+    modalImg.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
+}
 
 wrapper.addEventListener("wheel", e => {
     e.preventDefault();
@@ -217,36 +229,6 @@ wrapper.addEventListener("mousedown", e => {
     startY = e.clientY - posY;
 });
 
-// ========================
-// 点击 Gallery item 弹出 modal
-// ========================
-const galleryItems = document.querySelectorAll(".gallery-item");
-
-galleryItems.forEach(item => {
-    // 确保 item 有 data-full-src 属性
-    const img = item.querySelector('img');
-    if (img) {
-        item.addEventListener("click", () => {
-            const fullSrc = img.getAttribute('data-full-src') || img.src; // 优先使用 data-full-src
-            modalImg.src = fullSrc;
-            
-            // 每次打开时重置 modal 的缩放和位置
-            scale = 1; posX = 0; posY = 0;
-            updateTransform(); 
-            
-            modal.style.display = "flex";
-        });
-    }
-});
-
-// 重新关联关闭按钮的点击事件 (原代码中已包含，这里确保逻辑完整)
-closeModal.onclick = () => {
-    modal.style.display = "none";
-};
-
-// 确保 updateTransform 函数被保留且功能正常
-// (该函数在 modal 图片缩放 + 拖拽 部分已定义，无需重复)
-
 window.addEventListener("mousemove", e => {
     if (!isDragging) return;
     posX = e.clientX - startX;
@@ -256,17 +238,98 @@ window.addEventListener("mousemove", e => {
 
 window.addEventListener("mouseup", () => { isDragging = false; });
 
-function updateTransform() {
-    modalImg.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
-}
-
 closeModal.addEventListener("click", () => {
     scale = 1; posX = 0; posY = 0;
     updateTransform();
 });
 
-// ========================
-// 初始化
-// ========================
-window.addEventListener('load', initializeOnLoad);
-window.addEventListener('resize', initializeBackground);
+
+// =========================================================================================
+// DOMContentLoaded 监听器：所有需要在 DOM 加载后执行的逻辑都在这里
+// =========================================================================================
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- 1. 点击 Gallery item 弹出 modal ---
+    const galleryItems = document.querySelectorAll(".gallery-item");
+
+    galleryItems.forEach(item => {
+        const img = item.querySelector('img');
+        if (img) {
+            item.addEventListener("click", () => {
+                const fullSrc = img.getAttribute('data-full-src') || img.src; // 优先使用 data-full-src
+                modalImg.src = fullSrc;
+                
+                // 每次打开时重置 modal 的缩放和位置
+                scale = 1; posX = 0; posY = 0;
+                updateTransform(); 
+                
+                modal.style.display = "flex";
+            });
+        }
+    });
+
+    // 重新关联关闭按钮的点击事件
+    closeModal.onclick = () => {
+        modal.style.display = "none";
+    };
+
+
+    // --- 2. 音乐播放器逻辑 (修正后的代码) ---
+    const music = document.getElementById('backgroundMusic');
+    const toggleButton = document.getElementById('musicToggleButton');
+    let isPlaying = false; 
+    
+    // 确保 toggleButton 和 music 存在，防止 null 错误
+    if (!music || !toggleButton) {
+        console.error("无法找到音乐播放器元素或控制按钮！");
+        return; // 如果找不到元素，提前退出
+    }
+
+    // Helper function for button text/icon update
+    function updateButtonText(playing) {
+        if (playing) {
+            toggleButton.innerHTML = '⏸'; 
+        } else {
+            toggleButton.innerHTML = '▶'; 
+        }
+    }
+
+    // --- 关键修改：尝试立即播放 ---
+    // 浏览器可能会阻止，但这是实现自动播放的最佳尝试
+    music.play()
+        .then(() => {
+            isPlaying = true;
+            updateButtonText(true);
+        })
+        .catch(error => {
+            console.log('自动播放被浏览器阻止，需要用户首次点击。', error);
+            isPlaying = false;
+            updateButtonText(false);
+        });
+
+    // --- 按钮点击逻辑 ---
+    toggleButton.addEventListener('click', () => {
+        if (isPlaying) {
+            music.pause();
+            isPlaying = false;
+        } else {
+            // 用户点击后，浏览器通常会允许播放
+            music.play().catch(error => {
+                console.error("播放音乐时出错:", error);
+            });
+            isPlaying = true;
+        }
+        updateButtonText(isPlaying);
+    });
+    
+    // --- 状态同步 ---
+    music.onplaying = () => {
+        isPlaying = true;
+        updateButtonText(isPlaying);
+    };
+    
+    music.onpause = () => {
+        isPlaying = false;
+        updateButtonText(isPlaying);
+    };
+});
