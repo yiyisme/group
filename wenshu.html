@@ -33,6 +33,8 @@
                 <button id="startTour" class="tourbutton">Start the tour</button>
                 <button id="nextTour" class="tourbutton next" style="display: none;">Next →</button>
             </div>
+
+            
             
             <!-- background -->
             <div id="canvas">
@@ -47,7 +49,7 @@
                     <!-- --------------------------------------- -->
                     <div id="hotspot_yatuocao"
                         class="hotspot"
-                        data-info="The dayflower symbolizes humility, resilience, and elegance in traditional Chinese literati painting."
+                        data-info="The dayflower symbolizes humility, resilience, and elegance in traditional Chinese painting."
                         data-origin-x="16676"
                         data-origin-y="935">
                     </div>
@@ -104,7 +106,68 @@
                         data-origin-x="29063" data-origin-y="380">
                     </div>
 
+                    <div id="hotspot_Colia" 
+                        class="hotspot"
+                        data-info="Colias poliographus"
+                        data-origin-x="27265" data-origin-y="1411">
+                    </div>
+
+                    <div id="hotspot_Junonia" 
+                        class="hotspot"
+                        data-info="Junonia almana"
+                        data-origin-x="26233" data-origin-y="1186">
+                    </div>
+
+                    <div id="hotspot_Lethe syrcis" 
+                        class="hotspot"
+                        data-info="Lethe syrcis"
+                        data-origin-x="25891" data-origin-y="599">
+                    </div>
+
+                    <div id="hotspot_Indian Fritillary" 
+                        class="hotspot"
+                        data-info="Indian Fritillary"
+                        data-origin-x="22915" data-origin-y="647">
+                    </div>
+
+                    <div id="hotspot_common grass yellow" 
+                        class="hotspot"
+                        data-info="common grass yellow"
+                        data-origin-x="18376" data-origin-y="407">
+                    </div>
+
+                    <div id="hotspot_Sericinus montela" 
+                        class="hotspot"
+                        data-info="Sericinus montela"
+                        data-origin-x="17899" data-origin-y="1087">
+                    </div>
+
+                    <div id="hotspot_dark-brand bushbrown" 
+                        class="hotspot"
+                        data-info="dark-brand bushbrown"
+                        data-origin-x="12899" data-origin-y="1131">
+                    </div>
+
+                    <div id="hotspot_Small White" 
+                        class="hotspot"
+                        data-info="Small White"
+                        data-origin-x="7835" data-origin-y="1107">
+                    </div>
+
+                    <div id="hotspot_Gonepteryx mahaguru Gistel" 
+                        class="hotspot"
+                        data-info="Gonepteryx mahaguru Gistel"
+                        data-origin-x="27193" data-origin-y="571">
+                    </div>
+
             </div>
+
+            <p style="font-size: 0.8em; margin-top: 5px;" id="cc-license">
+                Audio: Yangguan Sandie, 
+                CharlieHuang, CC BY-SA 3.0 
+                <a href="https://creativecommons.org/licenses/by-sa/3.0" rel="license">https://creativecommons.org/licenses/by-sa/3.0</a>, 
+                via Wikimedia Commons。
+            </p>
 
             
             <!-- 向下滚动箭头：目标是简介页 -->
@@ -162,7 +225,7 @@
                         <span class="cc-license">Source unknown, public domain</span>
                     </div>
                 </div>
-                <p class="end-note">Thanks for exploring!.</p>
+                <p class="end-note">Thanks for exploring!</p>
             </div>
             
             <!-- 向上滚动箭头：目标是探索页 (回顶) -->
@@ -184,6 +247,19 @@
             <img id="modalImg" src="" alt="Full View">
         </div>
     </div>
+
+    <div id="music-player-container">
+    <audio id="backgroundMusic" loop>
+        <source src="Guqin-Yangguan_Sandie.ogg" type="audio/mpeg">
+        您的浏览器不支持音频播放。
+    </audio>
+
+    <button id="musicToggleButton" class="music-button playing">
+        ▶
+    </button>
+
+   
+</div>
     
     <script src="wenshu.js"></script>
 </body>
