@@ -294,18 +294,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- 关键修改：尝试立即播放 ---
-    // 浏览器可能会阻止，但这是实现自动播放的最佳尝试
-    music.play()
-        .then(() => {
-            isPlaying = true;
-            updateButtonText(true);
-        })
-        .catch(error => {
-            console.log('自动播放被浏览器阻止，需要用户首次点击。', error);
-            isPlaying = false;
-            updateButtonText(false);
-        });
 
     // --- 按钮点击逻辑 ---
     toggleButton.addEventListener('click', () => {
