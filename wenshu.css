@@ -470,3 +470,54 @@ body, html {
     background-color: #555; /* 悬停时颜色变深 */
     transform: translateY(-2px); /* 略微上浮增加交互感 */
 }
+
+/* --- 音乐播放器容器定位 --- */
+#music-player-container {
+    /* 固定在视窗中，不随滚动条移动 */
+    position: fixed;
+    
+    /* 调整定位：将 bottom 值增大，按钮就会向上移动 */
+    bottom: 100px; /* 从 30px 增大到 80px，留出空间给其他按钮 */
+    left: 50px;   /* 距离左侧 50px 保持不变 */
+    
+    /* 确保它在最上层，避免被其他元素遮挡 */
+    z-index: 1000;
+}
+
+/* 音乐按钮样式 */
+.music-button {
+    /* 基础样式 */
+    padding: 10px 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    outline: none; /* 移除点击时的轮廓 */
+    bottom: 70px;
+    opacity: 75%;
+}
+
+.music-button:hover {
+    background-color: #555;
+    transform: translateY(-2px); /* 略微上浮增加交互感 */
+}
+
+/* 确保版权信息清晰可见且位于前景 */
+#cc-license {
+    /* 强制定位到视窗底部 */
+    position: fixed;
+    bottom: 10px;
+    right: 10px; /* 放在右下角 */
+    
+    /* 提高层级，使其浮在画布之上 */
+    z-index: 100; 
+    
+    /* 确保样式清晰 */
+    color: whitesmoke; /* 使用浅灰色，避免太醒目 */
+    padding: 5px 8px;
+    border-radius: 3px;
+    line-height: 1.2;
+}
