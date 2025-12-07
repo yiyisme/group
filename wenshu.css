@@ -47,7 +47,7 @@ body, html {
 /* 固定标题 */
 .fixed-title {
     position: absolute;
-    top: 20px;
+    top: 10px;
     left: 20px;
     z-index: 20;
     font-size: 35px;
@@ -55,7 +55,7 @@ body, html {
     /* background: rgba(255, 255, 255, 0.8); */
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    font-family: sans-serif; /* 标题使用简洁的字体 */
+    font-family: centaur; /* 标题使用简洁的字体 */
     cursor: default;
 }
 
