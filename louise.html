@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louise Bourgeois - Master of Art Introduction</title>
+    <!-- Import Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Import Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D3891', // Main color: purple tone, reflecting artistic sense
+                        secondary: '#F99417', // Secondary color: warm orange, adding vitality
+                        neutral: '#2C3639', // Neutral color: dark gray, for text
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .card-hover {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-neutral">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md fixed w-full z-10 top-0">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- 添加返回主页按钮 -->
+            <div class="mr-4">
+                <a href="/" class="text-neutral hover:text-primary transition-colors flex items-center">
+                    <i class="fas fa-home mr-1"></i> Back to Home
+                </a>
+            </div>
+            <a href="#" class="text-2xl font-bold text-primary">Louise Bourgeois</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#bio" class="hover:text-primary transition-colors">Biographical Background</a>
+                <a href="#style" class="hover:text-primary transition-colors">Artistic Style</a>
+                <a href="#works" class="hover:text-primary transition-colors">Representative Works</a>
+                <a href="#influence" class="hover:text-primary transition-colors">Artistic Influence</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-neutral text-2xl" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white w-full" id="mobileMenu">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#bio" class="py-2 hover:text-primary transition-colors">Biographical Background</a>
+                <a href="#style" class="py-2 hover:text-primary transition-colors">Artistic Style</a>
+                <a href="#works" class="py-2 hover:text-primary transition-colors">Representative Works</a>
+                <a href="#influence" class="py-2 hover:text-primary transition-colors">Artistic Influence</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-24 pb-16 bg-primary/10 mt-16">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-primary">Louise Joséphine Bourgeois</h1>
+                <p class="text-xl mb-6">(1911–2010) · French-American Artist</p>
+                <p class="text-lg mb-6">"Art is the purification of emotion and the sublimation of pain."</p>
+                <a href="#works" class="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/80 transition-colors">View Representative Works</a>
+            </div>
+            <div class="md:w-1/2">
+                <!-- Portrait placeholder, replace with real image -->
+                <img src="louise.jpg" alt="Portrait of Louise Bourgeois" class="rounded-lg shadow-lg w-full h-auto object-cover">
+            </div>
+        </div>
+    </header>
+
+    <!-- 其余内容保持不变 -->
+    <!-- Biographical Background -->
+    <section id="bio" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center text-primary">Biographical Background</h2>
+            <div class="max-w-3xl mx-auto">
+                <p class="mb-4 text-lg">Louise Bourgeois was born in Choisy-le-Roi, a suburb of Paris, France, and passed away in New York, USA. She held dual French and American nationality (later naturalized as an American). She grew up in a family that ran a tapestry restoration and sales business. Although her childhood was immersed in an environment of art and craftsmanship, she suffered psychological trauma due to her father's long-term extramarital affair and her mother's chronic illness. These complex family relationships and emotional conflicts became the source of her artistic creation throughout her life.</p>
+                <p class="mb-4 text-lg">In her early years, she studied mathematics at the Sorbonne in Paris, then turned to the field of art. In the 1930s, she entered the École des Beaux-Arts in Paris to study painting and sculpture. In 1938, she married Robert Goldwater, an American art historian, moved to New York with him and settled there, starting her artistic career of more than 70 years.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 以下内容省略，保持不变 -->
+</body>
+</html>
