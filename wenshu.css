@@ -55,7 +55,7 @@ body, html {
     /* background: rgba(255, 255, 255, 0.8); */
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    font-family: "centaur", "EB Garamond"; /* 标题使用简洁的字体 */
+    font-family: "centaur", "EB Garamond", serif; /* 标题使用简洁的字体 */
     cursor: default;
 }
 
@@ -218,7 +218,7 @@ body, html {
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
-    font-family: "centaur", "EB Garamond";
+    font-family: "centaur", "EB Garamond", serif;
 }
 .tourbutton:hover {
     background-color: #555; /* 悬停时颜色变深 */
@@ -461,7 +461,7 @@ body, html {
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
-    font-family: "centaur", "EB Garamond";
+    font-family: "centaur", "EB Garamond", serif;
     opacity: 75%;
 }
 
