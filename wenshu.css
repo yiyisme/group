@@ -218,7 +218,7 @@ body, html {
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
-    font-family: centaur;
+    font-family: "centaur", "EB Garamond";
 }
 .tourbutton:hover {
     background-color: #555; /* 悬停时颜色变深 */
@@ -461,7 +461,7 @@ body, html {
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
-    font-family: centaur;
+    font-family: "centaur", "EB Garamond";
     opacity: 75%;
 }
 
